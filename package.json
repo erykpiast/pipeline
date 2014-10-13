@@ -1,7 +1,7 @@
 {
   "name": "pipeline",
-  "version": "0.0.2",
-  "description": "One more seed for web applications based on browserify module loader. Simple structure and Grunt file included.",
+  "version": "0.0.1",
+  "description": "One more implementation of \"pipes and filters\" pattern.",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
