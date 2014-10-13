@@ -25,6 +25,8 @@ module.exports = (function() {
                 fn: filter,
                 ctx: ('undefined' !== context ? context : null)
             });
+            
+            return this;
         },
         execute: function(data) {
             var filters = this._filters.slice();
@@ -36,6 +38,8 @@ module.exports = (function() {
                     data = filter.fn.call(filter.ctx, data);
                 } catch(err) {
                     this.emit('error', err);
+                    
+                    return null;
                 }
             }
             
@@ -44,5 +48,12 @@ module.exports = (function() {
             return data;
         }
     });
+    
+    // aliases
+    Pipeline.prototype.pipe = Pipeline.prototype.filter;
+    Pipeline.prototype.run = Pipeline.prototype.execute;
+    
+    
+    return Pipeline;
 
 })();
